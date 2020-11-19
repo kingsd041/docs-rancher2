@@ -11,12 +11,12 @@ steps:
     volumes:
       - name: vol
         path: /website
-  - name: preview
+  - name: preview1
     image: loganhz/drone-oss:0.0.4
     settings:
       dist: /website/build
       dist_ignore: img/
-      path: docs-rancher2-3-preview
+      path: docs-rancher2-preview
       endpoint: oss-accelerate.aliyuncs.com
       access_key_id:
         from_secret: ACCESS_KEY_ID
@@ -28,7 +28,7 @@ steps:
     when:
       ref:
         include:
-          - 'refs/heads/preview'
+          - 'refs/heads/preview1'
       event:
         - push
   - name: production
